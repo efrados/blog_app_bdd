@@ -1,0 +1,28 @@
+body {
+  background: #e1e1e1;
+  color: #64103F;
+}
+
+// Navbar styling
+.bd-navbar{
+ background: #64103F;
+}
+
+.navbar .navbar-brand {
+  font-size: 150%;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.navbar .navbar-nav li > a {
+  font-weight: bold;
+}
+
+.navbar .navbar-nav li > a:hover {
+  color: #ff0000;
+}
+
+// Form styling
+.page-heading, div > label {
+  color: #64103F;
+}
