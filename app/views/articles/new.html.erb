@@ -1,16 +1,16 @@
 <h1>New Article</h1>
 <%= form_for(@article) do |f| %>
-	<div class="form-group">
+	<div class="form-group col-md-6">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control", placeholder: "Title of article", autofocus: true %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group col-md-6">
     <%= f.label :body %>
     <%= f.text_area :body, class: "form-control", placeholder: "Title of article", autofocus: true %>
   </div>
 
   <div>
-  	<%= f.submit 'Create Article"', class: "btn btn-primary" %>
+  	<%= f.submit 'Create Article', class: "btn btn-primary" %>
 	</div>
 <% end %>
