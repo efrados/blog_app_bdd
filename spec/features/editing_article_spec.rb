@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "Editing an Article" do
   
   before do
-    @article = Article.create(title: "First Article", body: "Lorem Ipsum") 
+    @article = Article.create(title: "First Article", body: "Lorem Ipsum")
   end
 
   scenario "A user updates an article" do
