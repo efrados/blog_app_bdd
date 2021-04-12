@@ -1,0 +1,12 @@
+<article class="detail-article">
+  <h1 class="article-detail-title">
+    <%= @article.title %>
+  </h1>
+  <div id="article-date">
+    <div class="far fa-calendar-alt"></div>
+    <%= @article.created_at.strftime("%b %d, %Y") %>
+  </div>
+  <div class="article-body"> 
+    <%= @article.body %>
+  </div> 
+</article>
