@@ -44,12 +44,12 @@
       </div>
     <% end %>
     <div class="form-group col-md-6">
-      <%= f.label :body %>
-      <%= f.text_area :body, class: "form-control", placeholder: "Title of article", autofocus: true %>
+      <%= f.label :body, 'New Comment' %>
+      <%= f.text_area :body, class: "form-control", placeholder: "New comment", autofocus: true %>
     </div>
 
     <div>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit 'Add Comment', class: "btn btn-primary" %>
     </div>
   <% end %>
   </div>

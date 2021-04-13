@@ -2,12 +2,18 @@ class CommentsController < ApplicationController
   before_action :set_article
 
   def create
-    @comment = @article.comments.build(comment_params)
-    @comment.user = current_user
-    if @comment.save
-      flash[:notice] = "Comment has been created"
+    unless current_user
+      flash.now[:alert] = "Please sign in or sign up first"
+      redirect_to new_user_session_path
     else
-      flash.now[:alert] = "Comment has NOT been created"
+      @comment = @article.comments.build(comment_params)
+      @comment.user = current_user
+      if @comment.save
+        flash[:notice] = "Comment has been created."
+      else
+        flash.now[:alert] = "Comment has NOT been created."
+      end
+      redirect_to article_path(@comment.article)
     end
   end
 
@@ -17,6 +23,6 @@ class CommentsController < ApplicationController
     end
 
     def set_article
-      @article = Article.find(params[:artilce_id])
+      @article = Article.find(params[:article_id])
     end
 end
