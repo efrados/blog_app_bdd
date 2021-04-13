@@ -19,3 +19,59 @@
     </div>
   <% end %>
 </article>
+
+<hr>
+
+<div class="col-md-12">
+  <%= form_for [@article, @comment], html: {class: ""} do |f| %>
+    <% if @comment.errors.any? %>
+      <div class="card border-danger">
+        <div class="card-header">
+          <strong>
+            <%= pluralize(@comment.errors.count, "error") %>
+            prohibited this comment from being saved:
+          </strong>  
+        </div>
+        <div class="card-body text-danger">
+          <ul>
+            <% @comment.errors.full_messages.each do |msg| %>
+              <li>
+                <%= msg %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+    <div class="form-group col-md-6">
+      <%= f.label :body %>
+      <%= f.text_area :body, class: "form-control", placeholder: "Title of article", autofocus: true %>
+    </div>
+
+    <div>
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  </div>
+
+<div class="col-md-12">
+  <header><h2>Comments</h2></header>
+
+  <div class="col-md-10">
+    <% if persisted_comments(@comments).any? %>
+      <% persisted_comments(@comments).each do |comment| %>
+        <div class="comment-body">
+          <%= comment.body %>
+        </div>
+
+        <div class="comment-time">
+          <%= time_ago_in_words(comment.created_at) %>
+          ago by
+          <%= comment.user.email %>
+        </div>
+      <% end %>
+    <% else %>
+      Not comments yet
+    <% end %>
+  </div>
+</div>
